@@ -1,0 +1,20 @@
+import datetime 
+  
+tstart = datetime.datetime (2020, 11, 24, 10, 5) 
+  tend = datetime.datetime (2020, 11, 24, 12, 3) 
+  interval = datetime.timedelta (minutes = 30) 
+  
+periods =[] 
+ 
+period_start = tstart 
+ while period_start
+<tend: 
+period_end = min (period_start + interval, tend) 
+ periods.append ((period_start, period_end)) 
+ period_start = period_end 
+ 
+def format_time (dt):
+return dt.strftime ("%Y-%m-%d %H:%M") 
+    
+print (['{} - {}'.format (format_time (start), format_time (end)) 
+	     for start, end in periods])
