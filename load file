@@ -1,0 +1,16 @@
+def load_data_from_gcs(dataset_name, table_name, source):
+    bigquery_client = bigquery.Client()
+    dataset = bigquery_client.dataset(test_dataset)
+    table = dataset.table(usr_tbl)
+    job_name = str(uuid.uuid4())
+
+    job = bigquery_client.load_table_from_storage(
+        job_name, table, source)
+
+    job.source_format = 'NEWLINE_DELIMITED_JSON'
+    job.begin()
+
+    wait_for_job(job)
+
+    print('Loaded {} rows into {}:{}.'.format(
+        job.output_rows, test_dataset, usr_tbl))
