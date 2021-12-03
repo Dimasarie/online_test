@@ -1,0 +1,5 @@
+def tempat(**kwargs):
+    for key, value in kwargs.items():
+        print ("%s = %s" %(key, value))
+ 
+tempat(awal='Satu', tengah ='Dua', akhir='Tiga')
