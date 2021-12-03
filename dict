@@ -1,0 +1,15 @@
+dict_exp =	{
+  "k1": "v1",
+  "k2": None,
+  "k3": "v3",
+  "k4": None,
+  "k5": None,
+}
+print("Dictionary awal: ", dict_exp)
+
+for key in dict_exp:
+    if(dict_exp[key] == None):
+        dict_exp[key] = "Default"
+
+print("Dictionary akhir: ", dict_exp)
+
